@@ -1,105 +1,291 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#7a0a4a"><title>JP Smart IJFF 2026</title><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"><style>
-:root{--bg:#7a0a4a;--rose:#c4176f;--pink:#ff3d8b;--soft:#ffd9e8;--gold:#f0cf85;--ink:#fff;--glass:rgba(255,255,255,.1);--line:rgba(255,255,255,.2)}
-*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
-body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);min-height:100vh;background:linear-gradient(180deg,#76094a 0%,#8f0b55 55%,#b8146a 100%) fixed;overflow-x:hidden;line-height:1.5}
-.wrap{width:100%;max-width:1100px;margin:0 auto;padding:0 22px}
-.petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
-.petals i{position:absolute;top:-30px;font-style:normal;opacity:.55;animation:fall linear infinite}
-@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
-@media(prefers-reduced-motion:reduce){.petals{display:none}*{transition:none!important}}
-.top{position:relative;z-index:1;padding:34px 0 22px;overflow:hidden}
-.top::before{content:"";position:absolute;right:-50px;top:-60px;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#ff7a7a,#ff3d5e);opacity:.55}
-.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.top .wrap{position:relative}
-.top small{display:inline-block;background:rgba(255,255,255,.16);border:1px solid var(--line);padding:3px 12px;border-radius:99px;font-size:12px;color:var(--soft);margin-bottom:8px}
-h1{font-size:clamp(26px,7vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
-main{position:relative;z-index:1;padding:22px 22px 70px}
-h2{font-size:22px;margin:6px 0 14px}
-.lead{color:var(--soft);margin-bottom:16px}
-.note{background:rgba(240,207,133,.16);border:1px solid var(--gold);color:#fff3d1;border-radius:14px;padding:12px 14px;margin-bottom:16px;font-size:14px}
-.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.tile{background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:22px 12px;color:inherit;font:inherit;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;backdrop-filter:blur(8px);transition:transform .2s,background .2s}
-.tile:hover,.tile:focus-visible{transform:translateY(-4px);background:rgba(255,255,255,.18);outline:none}
-.tile span{font-size:40px}.tile b{font-size:17px}.tile small{color:var(--soft)}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}.tiles{grid-template-columns:repeat(4,1fr)}}
-@media(min-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}}
-.card{background:var(--glass);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px)}
-.th{position:relative;aspect-ratio:4/5;background:linear-gradient(135deg,#a0105f,#ff5c9d);cursor:pointer;overflow:hidden}
-.th img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
-.th:hover img{transform:scale(1.06)}
-.tag{position:absolute;left:8px;top:8px;background:rgba(122,10,74,.82);border:1px solid var(--gold);color:var(--gold);font-size:11px;padding:2px 9px;border-radius:99px}
-.play{position:absolute;right:8px;bottom:8px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.9);color:#c4176f;display:grid;place-items:center;font-size:13px}
-.cb{padding:11px 12px 12px;display:flex;flex-direction:column;gap:3px;flex:1}
-.cb h3{font-size:14px;line-height:1.3;cursor:pointer;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.cb h3:hover{color:var(--gold)}
-.cb p{font-size:12px;color:var(--soft)}
-.row{display:flex;gap:6px;margin-top:auto;padding-top:8px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:1;background:linear-gradient(135deg,#ff5c9d,#ff2e7a);color:#fff;border:1px solid var(--gold);border-radius:12px;padding:8px 10px;font:600 13px inherit;font-family:inherit;text-decoration:none;cursor:pointer}
-.btn:hover{filter:brightness(1.1)}.btn:disabled{opacity:.5}
-.btn.ghost{background:rgba(255,255,255,.12);border-color:var(--line)}
-.btn.big{width:100%;padding:14px;font-size:16px;margin-top:6px}
-.back{background:none;border:0;color:var(--gold);font:600 15px inherit;font-family:inherit;cursor:pointer;padding:4px 0 10px}
-.empty{grid-column:1/-1;text-align:center;color:var(--soft);padding:40px 0}
-.ov{position:fixed;inset:0;background:rgba(45,0,28,.88);z-index:50;display:flex;align-items:center;justify-content:center;padding:14px}
-.ov[hidden]{display:none}
-.pb{position:relative;width:min(94vw,820px);max-height:92vh;overflow:auto;background:#5e083a;border:1px solid var(--gold);border-radius:22px;padding:14px}
-.pb img,.pb iframe{width:100%;display:block;border-radius:14px;border:0;background:#000}
-.pb img{max-height:68vh;object-fit:contain}.pb iframe{height:62vh}
-.pi{padding:12px 4px 2px}.pi h3{font-size:18px}.pi p{color:var(--soft);font-size:14px;margin-top:4px;white-space:pre-wrap}
-.x{position:absolute;right:10px;top:10px;z-index:2;width:38px;height:38px;border-radius:50%;border:1px solid var(--gold);background:#ff2e7a;color:#fff;font-size:22px;line-height:1;cursor:pointer}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#fff;color:#7a0a4a;font-weight:600;padding:10px 18px;border-radius:99px;z-index:90;box-shadow:0 8px 30px rgba(0,0,0,.3);max-width:90vw;font-size:14px}
-.tabs{display:flex;gap:6px;background:rgba(0,0,0,.2);padding:5px;border-radius:16px;margin-bottom:18px}
-.tabs button{flex:1;border:0;border-radius:12px;padding:11px;font:700 14px inherit;font-family:inherit;color:var(--soft);background:none;cursor:pointer}
-.tabs button.on{background:linear-gradient(135deg,#ff5c9d,#ff2e7a);color:#fff}
-.panel{background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:20px;max-width:640px;backdrop-filter:blur(8px)}
-.panel>label{display:block;font-size:13px;font-weight:600;color:var(--soft);margin:12px 0 5px}
-.panel>label:first-child{margin-top:0}
-input[type=text],select,textarea{width:100%;background:rgba(255,255,255,.95);color:#4a0a2e;border:2px solid transparent;border-radius:12px;padding:11px 12px;font:16px inherit;font-family:inherit}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
-.panel>label.drop{display:block;text-align:center;border:2px dashed var(--gold);border-radius:16px;padding:20px 10px;color:#fff;font-size:15px;cursor:pointer;margin-top:0}
-.drop small{display:block;color:var(--soft);font-weight:400;margin-top:2px}
-.fi{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border-radius:12px;padding:8px 10px;margin-top:8px;font-size:13px}
-.fi span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.fi button{background:none;border:0;color:var(--gold);font-size:20px;cursor:pointer}
-#st{font-size:13px;color:var(--gold);margin-top:10px}
-.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px;margin-bottom:6px}
-.chip{flex:none;border:1px solid var(--line);background:var(--glass);color:#fff;border-radius:99px;padding:8px 15px;font:600 13px inherit;font-family:inherit;cursor:pointer}
-.chip.on{background:var(--gold);color:#6a0a40;border-color:var(--gold)}
-</style></head><body><div class="petals" id="petals"></div><header class="top"><div class="wrap"><small>Dashboard User</small><h1>JP Smart IJFF 2026</h1></div></header><main class="wrap"><div class="note" id="note" hidden>Dashboard belum terhubung. Isi konstanta <b>API</b> di bagian script dengan URL Web App Apps Script Anda.</div>
-<section id="home"><p class="lead">Pilih jenis konten yang ingin kamu lihat dan unduh.</p><div class="tiles" id="tiles"></div></section>
-<section id="list" hidden><button class="back" onclick="go()">‹ Kembali</button><h2 id="lt"></h2><div class="grid" id="grid"></div></section>
-</main><div class="ov" id="pv" hidden><div class="pb"><button class="x" onclick="closePv()" aria-label="Tutup">×</button><div id="pvb"></div></div></div><script>
-const API='https://script.google.com/macros/s/AKfycbydBuJDuRj3V1CXUFfJM_YkLUCT3zlx333M63d3X1N3Y-K0CKiK65f3rxHdwtgGYRUxoQ/exec';
-const CATS=['Story','Feed','Carousel','Materi Blast'];
-const $=s=>document.querySelector(s);
-const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let items=[];
-const noApi=()=>API.indexOf('PASTE')===0;
-const thumb=i=>'https://drive.google.com/thumbnail?id='+i.fid+'&sz=w500';
-const dl=i=>'https://drive.google.com/uc?export=download&id='+i.fid;
-const fd=d=>{try{return new Date(d).toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'})}catch(e){return ''}};
-function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3200)}
-async function api(d){const r=await fetch(API,{method:'POST',body:JSON.stringify(d)});const j=await r.json();if(!j.ok)throw Error(j.error||'Gagal');return j}
-async function load(){
- if(noApi()){$('#note').hidden=false;render();return}
- try{const r=await fetch(API);items=(await r.json()).items||[]}catch(e){toast('Gagal memuat konten. Periksa koneksi.')}
- render()}
-const card=i=>'<article class="card"><div class="th" onclick="openPv(\''+i.id+'\')"><img loading="lazy" src="'+thumb(i)+'" alt="" onerror="this.style.display=\'none\'"><span class="tag">'+esc(i.cat)+'</span>'+(String(i.type).indexOf('video')===0?'<span class="play">▶</span>':'')+'</div><div class="cb"><h3 onclick="openPv(\''+i.id+'\')">'+esc(i.title)+'</h3><p>'+fd(i.date)+'</p>'+acts(i)+'</div></article>';
-function openPv(id){
- const i=items.find(x=>x.id==id);if(!i)return;
- const img=String(i.type).indexOf('image')===0;
- $('#pvb').innerHTML=(img?'<img src="https://drive.google.com/thumbnail?id='+i.fid+'&sz=w2000" alt="">':'<iframe src="https://drive.google.com/file/d/'+i.fid+'/preview" allow="autoplay" allowfullscreen></iframe>')+'<div class="pi"><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p><div class="row"><a class="btn" href="'+dl(i)+'" target="_blank" rel="noopener">⬇ Unduh</a></div></div>';
- $('#pv').hidden=false;document.body.style.overflow='hidden'}
-function closePv(){$('#pvb').innerHTML='';$('#pv').hidden=true;document.body.style.overflow=''}
-(function(){const p=$('#petals');for(let k=0;k<12;k++){const s=document.createElement('i');s.textContent='🌸';s.style.cssText='left:'+Math.random()*100+'%;font-size:'+(12+Math.random()*12)+'px;animation-duration:'+(11+Math.random()*10)+'s;animation-delay:-'+Math.random()*15+'s';p.appendChild(s)}})();
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JP Smart IJFF 2026 - Pusat Konten User</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFF5F9;
+      background-image: radial-gradient(#FFBFD9 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .fuji-banner {
+      background: linear-gradient(135deg, #6E0038 0%, #B80058 55%, #E62E7A 100%);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid #F5C542;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(90deg, #FFE885, #F5C542, #FFF3B8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-800 pb-16">
 
-const ICON={'Story':'📖','Feed':'🖼️','Carousel':'🎠','Materi Blast':'📣'};let cur=null;
-const acts=i=>'<div class="row"><a class="btn" href="'+dl(i)+'" target="_blank" rel="noopener">⬇ Unduh</a></div>';
-function go(c){cur=c||null;render();window.scrollTo(0,0)}
-function render(){
- $('#home').hidden=!!cur;$('#list').hidden=!cur;
- $('#tiles').innerHTML=CATS.map(c=>'<button class="tile" onclick="go(\''+c+'\')"><span>'+ICON[c]+'</span><b>'+c+'</b><small>'+items.filter(i=>i.cat==c).length+' konten</small></button>').join('');
- if(cur){$('#lt').textContent=cur;const l=items.filter(i=>i.cat==cur);$('#grid').innerHTML=l.length?l.map(card).join(''):'<p class="empty">Belum ada konten di kategori ini.</p>'}}
-load();
-</script></body></html>
+  <!-- HEADER USER -->
+  <header class="fuji-banner text-white shadow-lg">
+    <svg class="absolute right-4 bottom-0 w-48 sm:w-64 opacity-25 pointer-events-none" viewBox="0 0 300 150" fill="none">
+      <circle cx="210" cy="60" r="45" fill="#FF85B3"/>
+      <path d="M20 150 L130 35 L175 35 L280 150 Z" fill="#4A0028"/>
+      <path d="M130 35 L175 35 L195 65 L175 58 L160 70 L145 55 L130 68 L112 62 Z" fill="#FFFFFF"/>
+    </svg>
+
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 py-7 relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-white/15 border border-white/25 text-xs font-semibold text-pink-100 mb-2">
+          🌸 PORTAL MATERI PUBLIKASI
+        </span>
+        <h1 class="text-2xl sm:text-3xl font-extrabold">
+          JP Smart <span class="gold-gradient-text">IJFF 2026</span>
+        </h1>
+        <p class="text-pink-100 text-xs sm:text-sm mt-1">Pilih kategori di bawah untuk melihat preview & download materi resmi</p>
+      </div>
+
+      <!-- Tombol Download Seluruh Konten -->
+      <button onclick="downloadAllContents()" class="self-start sm:self-auto px-5 py-3 rounded-2xl bg-[#F5C542] hover:bg-[#eab528] text-[#6E0038] font-extrabold text-xs sm:text-sm shadow-md transition flex items-center gap-2">
+        ⬇️ Download Semua Konten
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTAINER UTAMA (Batas Kiri-Kanan Lega & Nyaman di HP) -->
+  <main class="max-w-5xl mx-auto px-5 sm:px-8 mt-6 space-y-6">
+
+    <!-- PILIHAN MENU KATEGORI KONTEN UNTUK USER -->
+    <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+      <button onclick="selectUserCategory('Semua')" data-cat="Semua" class="user-cat-btn p-3.5 rounded-2xl bg-[#8B004B] text-white font-bold text-xs sm:text-sm shadow-sm transition flex flex-col items-center gap-1">
+        <span class="text-xl">✨</span>
+        <span>Semua Materi</span>
+      </button>
+      <button onclick="selectUserCategory('Story')" data-cat="Story" class="user-cat-btn p-3.5 rounded-2xl bg-white hover:bg-pink-50 text-[#8B004B] border border-pink-100 font-bold text-xs sm:text-sm shadow-sm transition flex flex-col items-center gap-1">
+        <span class="text-xl">📱</span>
+        <span>Story</span>
+      </button>
+      <button onclick="selectUserCategory('Feed')" data-cat="Feed" class="user-cat-btn p-3.5 rounded-2xl bg-white hover:bg-pink-50 text-[#8B004B] border border-pink-100 font-bold text-xs sm:text-sm shadow-sm transition flex flex-col items-center gap-1">
+        <span class="text-xl">🖼️</span>
+        <span>Feed</span>
+      </button>
+      <button onclick="selectUserCategory('Carousel')" data-cat="Carousel" class="user-cat-btn p-3.5 rounded-2xl bg-white hover:bg-pink-50 text-[#8B004B] border border-pink-100 font-bold text-xs sm:text-sm shadow-sm transition flex flex-col items-center gap-1">
+        <span class="text-xl">🎠</span>
+        <span>Carousel</span>
+      </button>
+      <button onclick="selectUserCategory('Materi Blasting')" data-cat="Materi Blasting" class="user-cat-btn col-span-2 sm:col-span-1 p-3.5 rounded-2xl bg-white hover:bg-pink-50 text-[#8B004B] border border-pink-100 font-bold text-xs sm:text-sm shadow-sm transition flex flex-col items-center gap-1">
+        <span class="text-xl">📢</span>
+        <span>Materi Blast</span>
+      </button>
+    </div>
+
+    <!-- DAFTAR KONTEN USER -->
+    <div id="userContentGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+  </main>
+
+  <!-- POPUP PREVIEW KONTEN (HANYA BISA DITUTUP DENGAN TOMBOL "X") -->
+  <div id="userPreviewModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm flex items-center justify-center p-5">
+    <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border-2 border-[#F5C542]">
+      <div class="bg-gradient-to-r from-[#6E0038] to-[#B80058] px-5 py-4 text-white flex items-center justify-between">
+        <div class="truncate pr-3">
+          <span id="uModalCategory" class="text-[11px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-white/20"></span>
+          <h3 id="uModalTitle" class="text-base font-bold mt-1 truncate"></h3>
+        </div>
+        <!-- Hanya tombol X ini yang menutup popup -->
+        <button onclick="closeUserPreview()" title="Tutup"
+          class="w-9 h-9 rounded-full bg-white text-[#8B004B] hover:bg-rose-100 font-extrabold text-lg flex items-center justify-center shadow shrink-0">
+          ✕
+        </button>
+      </div>
+      <div class="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
+        <div id="uModalMedia" class="rounded-2xl overflow-hidden bg-slate-100 flex items-center justify-center min-h-[220px]"></div>
+        <p id="uModalCaption" class="text-sm text-slate-700 whitespace-pre-line bg-pink-50/60 p-3.5 rounded-xl border border-pink-100"></p>
+        <a id="uModalDownloadBtn" href="#" target="_blank" download
+          class="block w-full text-center py-3 rounded-xl bg-gradient-to-r from-[#8B004B] to-[#D6006E] text-white font-bold text-sm shadow">
+          ⬇️ Download Materi Ini
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tempelkan URL Web App Google Apps Script yang sama dengan Admin di sini
+    const DEFAULT_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyX4cLVzhR7MY13zOIWSOc3E_-esfm0SYjTyAdfi21eaSSV10BGfu2H6Sb9CmFgbEqKfQ/exec";
+    const SCRIPT_URL = localStorage.getItem("JPSMART_SCRIPT_URL") || DEFAULT_SCRIPT_URL;
+
+    let contents = [];
+    let currentCategory = "Semua";
+
+    const FALLBACK_CONTENTS = [
+      {
+        id: "DEMO-1",
+        tanggal: "09 Nov 2026, 10:15",
+        judul: "Carousel Panduan Registrasi JP Smart IJFF 2026",
+        kategori: "Carousel",
+        caption: "Slide panduan langkah demi langkah registrasi pengunjung JP Smart IJFF 2026.",
+        fileName: "carousel-panduan-ijff.jpg",
+        mimeType: "image/jpeg",
+        viewUrl: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=80",
+        downloadUrl: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: "DEMO-2",
+        tanggal: "09 Nov 2026, 11:30",
+        judul: "Story Countdown 7 Hari Menuju IJFF 2026",
+        kategori: "Story",
+        caption: "Gunakan stiker link pendaftaran resmi saat upload ke Instagram & WhatsApp Story.",
+        fileName: "story-countdown-sakura.jpg",
+        mimeType: "image/jpeg",
+        viewUrl: "https://images.unsplash.com/photo-1528164344705-475426879c0d?auto=format&fit=crop&w=900&q=80",
+        downloadUrl: "https://images.unsplash.com/photo-1528164344705-475426879c0d?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: "DEMO-3",
+        tanggal: "09 Nov 2026, 13:00",
+        judul: "Poster Utama Feed Instagram JP Smart",
+        kategori: "Feed",
+        caption: "Poster utama pengumuman booth dan promo spesial JP Smart di IJFF 2026.",
+        fileName: "feed-poster-utama.jpg",
+        mimeType: "image/jpeg",
+        viewUrl: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=900&q=80",
+        downloadUrl: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: "DEMO-4",
+        tanggal: "09 Nov 2026, 14:10",
+        judul: "Materi Blasting WhatsApp Komunitas Jepang",
+        kategori: "Materi Blasting",
+        caption: "Halo teman-teman! Jangan lewatkan keseruan JP Smart IJFF 2026 pekan ini.",
+        fileName: "banner-blasting-wa.jpg",
+        mimeType: "image/jpeg",
+        viewUrl: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=900&q=80",
+        downloadUrl: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=1200&q=80"
+      }
+    ];
+
+    async function fetchUserContents() {
+      if (!SCRIPT_URL) {
+        const saved = localStorage.getItem("JPSMART_DEMO_ITEMS");
+        contents = saved ? JSON.parse(saved) : FALLBACK_CONTENTS;
+        renderUserGrid();
+        return;
+      }
+      try {
+        const res = await fetch(SCRIPT_URL);
+        const json = await res.json();
+        if (json.status === "success") {
+          contents = json.data;
+          renderUserGrid();
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function renderUserGrid() {
+      const grid = document.getElementById("userContentGrid");
+      const list = currentCategory === "Semua"
+        ? contents
+        : contents.filter(x => x.kategori === currentCategory);
+
+      if (list.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full bg-white rounded-3xl p-10 text-center border border-pink-100">
+            <p class="text-base font-bold text-[#8B004B]">Belum ada materi di kategori "${currentCategory}"</p>
+          </div>`;
+        return;
+      }
+
+      grid.innerHTML = list.map(item => `
+        <div class="bg-white rounded-2xl shadow-sm hover:shadow-md border border-pink-100 overflow-hidden flex flex-col justify-between transition group">
+          <div>
+            <!-- Klik Thumbnail untuk Preview Popup -->
+            <div onclick="openUserPreview('${item.id}')" class="relative h-48 bg-pink-50 cursor-pointer overflow-hidden">
+              <img src="${item.viewUrl}" alt="${item.judul}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold bg-[#8B004B]/90 text-white">
+                ${item.kategori}
+              </span>
+              <div class="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                <span class="px-3 py-1.5 rounded-full bg-white text-[#8B004B] font-bold text-xs shadow">🔍 Klik Preview</span>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-[11px] text-slate-400 font-medium">${item.tanggal}</p>
+              <!-- Klik Judul untuk Preview Popup -->
+              <h3 onclick="openUserPreview('${item.id}')" class="text-sm font-extrabold text-slate-800 hover:text-[#B80058] cursor-pointer mt-1 line-clamp-2 transition">
+                ${item.judul}
+              </h3>
+              <p class="text-xs text-slate-500 mt-1.5 line-clamp-2">${item.caption || ""}</p>
+            </div>
+          </div>
+
+          <div class="p-4 pt-0">
+            <a href="${item.downloadUrl}" target="_blank" download="${item.fileName || item.judul}"
+              class="block w-full text-center py-2.5 rounded-xl bg-pink-50 hover:bg-[#B80058] text-[#8B004B] hover:text-white font-bold text-xs transition">
+              ⬇️ Download Materi
+            </a>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function selectUserCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll(".user-cat-btn").forEach(btn => {
+        const active = btn.getAttribute("data-cat") === cat;
+        btn.className = active
+          ? "user-cat-btn p-3.5 rounded-2xl bg-[#8B004B] text-white font-bold text-xs sm:text-sm shadow-sm transition flex flex-col items-center gap-1"
+          : "user-cat-btn p-3.5 rounded-2xl bg-white hover:bg-pink-50 text-[#8B004B] border border-pink-100 font-bold text-xs sm:text-sm shadow-sm transition flex flex-col items-center gap-1";
+      });
+      renderUserGrid();
+    }
+
+    function openUserPreview(id) {
+      const item = contents.find(x => x.id === id);
+      if (!item) return;
+      document.getElementById("uModalCategory").textContent = item.kategori;
+      document.getElementById("uModalTitle").textContent = item.judul;
+      document.getElementById("uModalCaption").textContent = item.caption || "Tidak ada catatan caption.";
+      document.getElementById("uModalDownloadBtn").href = item.downloadUrl;
+
+      const mediaBox = document.getElementById("uModalMedia");
+      if (item.mimeType && item.mimeType.startsWith("video/")) {
+        mediaBox.innerHTML = `<video src="${item.downloadUrl}" controls class="w-full max-h-[380px] rounded-xl"></video>`;
+      } else {
+        mediaBox.innerHTML = `<img src="${item.viewUrl}" alt="${item.judul}" class="w-full max-h-[420px] object-contain" />`;
+      }
+      document.getElementById("userPreviewModal").classList.remove("hidden");
+    }
+
+    function closeUserPreview() {
+      document.getElementById("uModalMedia").innerHTML = "";
+      document.getElementById("userPreviewModal").classList.add("hidden");
+    }
+
+    function downloadAllContents() {
+      const list = currentCategory === "Semua"
+        ? contents
+        : contents.filter(x => x.kategori === currentCategory);
+      if (list.length === 0) {
+        alert("Tidak ada konten untuk didownload.");
+        return;
+      }
+      list.forEach((item, idx) => {
+        setTimeout(() => {
+          const a = document.createElement("a");
+          a.href = item.downloadUrl;
+          a.target = "_blank";
+          a.download = item.fileName || `konten-${idx + 1}`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }, idx * 600);
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", fetchUserContents);
+  </script>
+</body>
+</html>
