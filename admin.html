@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#7a0a4a"><title>JP Smart IJFF 2026</title><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"><style>
+:root{--bg:#7a0a4a;--rose:#c4176f;--pink:#ff3d8b;--soft:#ffd9e8;--gold:#f0cf85;--ink:#fff;--glass:rgba(255,255,255,.1);--line:rgba(255,255,255,.2)}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);min-height:100vh;background:linear-gradient(180deg,#76094a 0%,#8f0b55 55%,#b8146a 100%) fixed;overflow-x:hidden;line-height:1.5}
+.wrap{width:100%;max-width:1100px;margin:0 auto;padding:0 22px}
+.petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.petals i{position:absolute;top:-30px;font-style:normal;opacity:.55;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.petals{display:none}*{transition:none!important}}
+.top{position:relative;z-index:1;padding:34px 0 22px;overflow:hidden}
+.top::before{content:"";position:absolute;right:-50px;top:-60px;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#ff7a7a,#ff3d5e);opacity:.55}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.top .wrap{position:relative}
+.top small{display:inline-block;background:rgba(255,255,255,.16);border:1px solid var(--line);padding:3px 12px;border-radius:99px;font-size:12px;color:var(--soft);margin-bottom:8px}
+h1{font-size:clamp(26px,7vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+main{position:relative;z-index:1;padding:22px 22px 70px}
+h2{font-size:22px;margin:6px 0 14px}
+.lead{color:var(--soft);margin-bottom:16px}
+.note{background:rgba(240,207,133,.16);border:1px solid var(--gold);color:#fff3d1;border-radius:14px;padding:12px 14px;margin-bottom:16px;font-size:14px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tile{background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:22px 12px;color:inherit;font:inherit;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;backdrop-filter:blur(8px);transition:transform .2s,background .2s}
+.tile:hover,.tile:focus-visible{transform:translateY(-4px);background:rgba(255,255,255,.18);outline:none}
+.tile span{font-size:40px}.tile b{font-size:17px}.tile small{color:var(--soft)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}.tiles{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px)}
+.th{position:relative;aspect-ratio:4/5;background:linear-gradient(135deg,#a0105f,#ff5c9d);cursor:pointer;overflow:hidden}
+.th img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.th:hover img{transform:scale(1.06)}
+.tag{position:absolute;left:8px;top:8px;background:rgba(122,10,74,.82);border:1px solid var(--gold);color:var(--gold);font-size:11px;padding:2px 9px;border-radius:99px}
+.play{position:absolute;right:8px;bottom:8px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.9);color:#c4176f;display:grid;place-items:center;font-size:13px}
+.cb{padding:11px 12px 12px;display:flex;flex-direction:column;gap:3px;flex:1}
+.cb h3{font-size:14px;line-height:1.3;cursor:pointer;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cb h3:hover{color:var(--gold)}
+.cb p{font-size:12px;color:var(--soft)}
+.row{display:flex;gap:6px;margin-top:auto;padding-top:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:1;background:linear-gradient(135deg,#ff5c9d,#ff2e7a);color:#fff;border:1px solid var(--gold);border-radius:12px;padding:8px 10px;font:600 13px inherit;font-family:inherit;text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.1)}.btn:disabled{opacity:.5}
+.btn.ghost{background:rgba(255,255,255,.12);border-color:var(--line)}
+.btn.big{width:100%;padding:14px;font-size:16px;margin-top:6px}
+.back{background:none;border:0;color:var(--gold);font:600 15px inherit;font-family:inherit;cursor:pointer;padding:4px 0 10px}
+.empty{grid-column:1/-1;text-align:center;color:var(--soft);padding:40px 0}
+.ov{position:fixed;inset:0;background:rgba(45,0,28,.88);z-index:50;display:flex;align-items:center;justify-content:center;padding:14px}
+.ov[hidden]{display:none}
+.pb{position:relative;width:min(94vw,820px);max-height:92vh;overflow:auto;background:#5e083a;border:1px solid var(--gold);border-radius:22px;padding:14px}
+.pb img,.pb iframe{width:100%;display:block;border-radius:14px;border:0;background:#000}
+.pb img{max-height:68vh;object-fit:contain}.pb iframe{height:62vh}
+.pi{padding:12px 4px 2px}.pi h3{font-size:18px}.pi p{color:var(--soft);font-size:14px;margin-top:4px;white-space:pre-wrap}
+.x{position:absolute;right:10px;top:10px;z-index:2;width:38px;height:38px;border-radius:50%;border:1px solid var(--gold);background:#ff2e7a;color:#fff;font-size:22px;line-height:1;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#fff;color:#7a0a4a;font-weight:600;padding:10px 18px;border-radius:99px;z-index:90;box-shadow:0 8px 30px rgba(0,0,0,.3);max-width:90vw;font-size:14px}
+.tabs{display:flex;gap:6px;background:rgba(0,0,0,.2);padding:5px;border-radius:16px;margin-bottom:18px}
+.tabs button{flex:1;border:0;border-radius:12px;padding:11px;font:700 14px inherit;font-family:inherit;color:var(--soft);background:none;cursor:pointer}
+.tabs button.on{background:linear-gradient(135deg,#ff5c9d,#ff2e7a);color:#fff}
+.panel{background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:20px;max-width:640px;backdrop-filter:blur(8px)}
+.panel>label{display:block;font-size:13px;font-weight:600;color:var(--soft);margin:12px 0 5px}
+.panel>label:first-child{margin-top:0}
+input[type=text],select,textarea{width:100%;background:rgba(255,255,255,.95);color:#4a0a2e;border:2px solid transparent;border-radius:12px;padding:11px 12px;font:16px inherit;font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+.panel>label.drop{display:block;text-align:center;border:2px dashed var(--gold);border-radius:16px;padding:20px 10px;color:#fff;font-size:15px;cursor:pointer;margin-top:0}
+.drop small{display:block;color:var(--soft);font-weight:400;margin-top:2px}
+.fi{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border-radius:12px;padding:8px 10px;margin-top:8px;font-size:13px}
+.fi span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fi button{background:none;border:0;color:var(--gold);font-size:20px;cursor:pointer}
+#st{font-size:13px;color:var(--gold);margin-top:10px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px;margin-bottom:6px}
+.chip{flex:none;border:1px solid var(--line);background:var(--glass);color:#fff;border-radius:99px;padding:8px 15px;font:600 13px inherit;font-family:inherit;cursor:pointer}
+.chip.on{background:var(--gold);color:#6a0a40;border-color:var(--gold)}
+</style></head><body><div class="petals" id="petals"></div><header class="top"><div class="wrap"><small>Dashboard Admin</small><h1>JP Smart IJFF 2026</h1></div></header><main class="wrap"><div class="note" id="note" hidden>Dashboard belum terhubung. Isi konstanta <b>API</b> di bagian script dengan URL Web App Apps Script Anda.</div>
+<nav class="tabs"><button id="tu" class="on" onclick="tab('u')">⬆ Upload</button><button id="tk" onclick="tab('k')">🗂 Konten</button></nav>
+<section id="su"><div class="panel">
+<label>Judul konten</label><input type="text" id="t" placeholder="Contoh: Story Hari Pertama">
+<label>Kategori</label><select id="c"></select>
+<label>Deskripsi / info tambahan</label><textarea id="d" rows="3" placeholder="Opsional"></textarea>
+<label>File</label>
+<label class="drop" for="f">☁ Ketuk untuk memilih file<small>Gambar, video, atau PDF. Boleh lebih dari satu. Maks. ±25 MB per file.</small></label>
+<input id="f" type="file" multiple hidden accept="image/*,video/*,application/pdf">
+<div id="fl"></div>
+<button class="btn big" id="sb" onclick="submitAll()">Kirim konten</button>
+<p id="st"></p></div></section>
+<section id="sk" hidden><div class="chips" id="chips"></div><div class="grid" id="grid"></div></section>
+<div class="ov" id="ed" hidden><div class="pb"><button class="x" onclick="$('#ed').hidden=true" aria-label="Tutup">×</button>
+<h2>Edit info konten</h2><div class="panel" style="padding:0;border:0;background:none">
+<label>Judul</label><input type="text" id="et"><label>Kategori</label><select id="ec"></select><label>Deskripsi</label><textarea id="ed2" rows="3"></textarea>
+<button class="btn big" id="eb" onclick="saveEd()">Simpan perubahan</button></div></div></div>
+</main><div class="ov" id="pv" hidden><div class="pb"><button class="x" onclick="closePv()" aria-label="Tutup">×</button><div id="pvb"></div></div></div><script>
+const API='https://script.google.com/macros/s/AKfycbydBuJDuRj3V1CXUFfJM_YkLUCT3zlx333M63d3X1N3Y-K0CKiK65f3rxHdwtgGYRUxoQ/exec';
+const CATS=['Story','Feed','Carousel','Materi Blast'];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let items=[];
+const noApi=()=>API.indexOf('PASTE')===0;
+const thumb=i=>'https://drive.google.com/thumbnail?id='+i.fid+'&sz=w500';
+const dl=i=>'https://drive.google.com/uc?export=download&id='+i.fid;
+const fd=d=>{try{return new Date(d).toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'})}catch(e){return ''}};
+function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3200)}
+async function api(d){const r=await fetch(API,{method:'POST',body:JSON.stringify(d)});const j=await r.json();if(!j.ok)throw Error(j.error||'Gagal');return j}
+async function load(){
+ if(noApi()){$('#note').hidden=false;render();return}
+ try{const r=await fetch(API);items=(await r.json()).items||[]}catch(e){toast('Gagal memuat konten. Periksa koneksi.')}
+ render()}
+const card=i=>'<article class="card"><div class="th" onclick="openPv(\''+i.id+'\')"><img loading="lazy" src="'+thumb(i)+'" alt="" onerror="this.style.display=\'none\'"><span class="tag">'+esc(i.cat)+'</span>'+(String(i.type).indexOf('video')===0?'<span class="play">▶</span>':'')+'</div><div class="cb"><h3 onclick="openPv(\''+i.id+'\')">'+esc(i.title)+'</h3><p>'+fd(i.date)+'</p>'+acts(i)+'</div></article>';
+function openPv(id){
+ const i=items.find(x=>x.id==id);if(!i)return;
+ const img=String(i.type).indexOf('image')===0;
+ $('#pvb').innerHTML=(img?'<img src="https://drive.google.com/thumbnail?id='+i.fid+'&sz=w2000" alt="">':'<iframe src="https://drive.google.com/file/d/'+i.fid+'/preview" allow="autoplay" allowfullscreen></iframe>')+'<div class="pi"><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p><div class="row"><a class="btn" href="'+dl(i)+'" target="_blank" rel="noopener">⬇ Unduh</a></div></div>';
+ $('#pv').hidden=false;document.body.style.overflow='hidden'}
+function closePv(){$('#pvb').innerHTML='';$('#pv').hidden=true;document.body.style.overflow=''}
+(function(){const p=$('#petals');for(let k=0;k<12;k++){const s=document.createElement('i');s.textContent='🌸';s.style.cssText='left:'+Math.random()*100+'%;font-size:'+(12+Math.random()*12)+'px;animation-duration:'+(11+Math.random()*10)+'s;animation-delay:-'+Math.random()*15+'s';p.appendChild(s)}})();
+
+const KEY='ijff_draft';let files=[],fc='Semua',eid=null;
+const opts=CATS.map(c=>'<option>'+c+'</option>').join('');
+$('#c').innerHTML=opts;$('#ec').innerHTML=opts;
+const idb=()=>new Promise((ok,no)=>{const r=indexedDB.open('ijff',1);r.onupgradeneeded=()=>r.result.createObjectStore('f');r.onsuccess=()=>ok(r.result);r.onerror=no});
+async function idbSet(v){try{const d=await idb();d.transaction('f','readwrite').objectStore('f').put(v,'files')}catch(e){}}
+async function idbGet(){try{const d=await idb();return await new Promise(ok=>{const q=d.transaction('f').objectStore('f').get('files');q.onsuccess=()=>ok(q.result||[]);q.onerror=()=>ok([])})}catch(e){return[]}}
+function sv(){try{localStorage.setItem(KEY,JSON.stringify({t:$('#t').value,c:$('#c').value,d:$('#d').value,tab:$('#sk').hidden?'u':'k'}))}catch(e){}}
+['t','c','d'].forEach(k=>$('#'+k).addEventListener('input',sv));
+function tab(x){const k=x==='k';$('#su').hidden=k;$('#sk').hidden=!k;$('#tu').className=k?'':'on';$('#tk').className=k?'on':'';sv();if(k)render()}
+function renderFiles(){$('#fl').innerHTML=files.map((f,n)=>'<div class="fi"><span>'+esc(f.name)+' ('+(f.size/1048576).toFixed(1)+' MB)</span><button onclick="rmFile('+n+')" aria-label="Hapus file">×</button></div>').join('')}
+async function rmFile(n){files.splice(n,1);await idbSet(files);renderFiles()}
+$('#f').addEventListener('change',async e=>{files=files.concat([...e.target.files]);e.target.value='';await idbSet(files);renderFiles()});
+const b64=f=>new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(String(r.result).split(',')[1]);r.onerror=no;r.readAsDataURL(f)});
+async function submitAll(){
+ const t=$('#t').value.trim();
+ if(!t)return toast('Judul wajib diisi');
+ if(!files.length)return toast('Pilih minimal satu file');
+ if(noApi())return toast('URL Apps Script belum diisi');
+ const b=$('#sb');b.disabled=true;const n=files.length;
+ try{
+  for(let k=1;files.length;k++){
+   $('#st').textContent='Mengunggah '+k+' dari '+n+'…';
+   const f=files[0];
+   await api({action:'upload',title:n>1?t+' ('+k+'/'+n+')':t,cat:$('#c').value,desc:$('#d').value,name:f.name,mime:f.type||'application/octet-stream',data:await b64(f)});
+   files.shift();await idbSet(files);renderFiles()}
+  try{localStorage.removeItem(KEY)}catch(e){}
+  $('#t').value='';$('#d').value='';$('#st').textContent='';
+  toast('Konten berhasil diunggah');await load();tab('k')
+ }catch(e){$('#st').textContent='Gagal: '+e.message+'. Draf tetap tersimpan, silakan kirim lagi.'}
+ finally{b.disabled=false}}
+const acts=i=>'<div class="row"><button class="btn ghost" onclick="openEd(\''+i.id+'\')">✎ Edit</button><button class="btn ghost" onclick="del(\''+i.id+'\')">🗑 Hapus</button></div>';
+function render(){
+ $('#chips').innerHTML=['Semua'].concat(CATS).map(c=>'<button class="chip'+(c==fc?' on':'')+'" onclick="fc=\''+c+'\';render()">'+c+' ('+(c=='Semua'?items.length:items.filter(i=>i.cat==c).length)+')</button>').join('');
+ const l=items.filter(i=>fc=='Semua'||i.cat==fc);
+ $('#grid').innerHTML=l.length?l.map(card).join(''):'<p class="empty">Belum ada konten. Mulai dari tab Upload.</p>'}
+function openEd(id){const i=items.find(x=>x.id==id);eid=id;$('#et').value=i.title;$('#ec').value=i.cat;$('#ed2').value=i.desc||'';$('#ed').hidden=false}
+async function saveEd(){
+ const b=$('#eb');b.disabled=true;
+ try{const d={title:$('#et').value.trim(),cat:$('#ec').value,desc:$('#ed2').value};
+  if(!d.title)throw Error('Judul wajib diisi');
+  await api(Object.assign({action:'update',id:eid},d));
+  Object.assign(items.find(x=>x.id==eid),d);$('#ed').hidden=true;render();toast('Perubahan disimpan')}
+ catch(e){toast(e.message)}finally{b.disabled=false}}
+async function del(id){
+ if(!confirm('Hapus konten ini? File di Drive juga dipindah ke sampah.'))return;
+ try{await api({action:'delete',id});items=items.filter(x=>x.id!=id);render();toast('Konten dihapus')}catch(e){toast(e.message)}}
+(async()=>{
+ try{const d=JSON.parse(localStorage.getItem(KEY)||'null');if(d){$('#t').value=d.t||'';if(d.c)$('#c').value=d.c;$('#d').value=d.d||''}
+  files=await idbGet();renderFiles();
+  if(d&&(d.t||d.d||files.length))toast('Draf sebelumnya dipulihkan');
+  await load();if(d&&d.tab==='k')tab('k')}catch(e){await load()}})();
+</script></body></html>
